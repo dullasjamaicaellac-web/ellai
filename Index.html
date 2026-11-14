@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #100b1c;
+            color: #f5efff;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            background: rgba(20, 12, 37, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #563b78;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #c69aff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav ul li a:hover {
+            color: #c69aff;
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 110px 10%;
+            scroll-margin-top: 65px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+            color: #d4b3ff;
+        }
+
+        .highlight {
+            color: #bb83ff;
+        }
+
+        /* HOME */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: radial-gradient(circle at 80% 40%,
+                #422365, #100b1c 65%);
+        }
+
+        .home-text {
+            max-width: 600px;
+        }
+
+        .home-text h1 {
+            font-size: 55px;
+            margin: 15px 0;
+        }
+
+        .home-text h3 {
+            font-size: 22px;
+            color: #c69aff;
+        }
+
+        .home-text p {
+            color: #c9bfd8;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        .profile {
+            width: 260px;
+            height: 300px;
+            border: 4px solid #bd8aff;
+            border-radius: 30px;
+            background: #302044;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #d4b3ff;
+            box-shadow: 0 0 35px #8c52c9;
+            overflow: hidden;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            background: #a76ce0;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #8244c4;
+            transform: translateY(-3px);
+        }
+
+        /* ABOUT */
+        #about {
+            background: #181126;
+        }
+
+        .about-box {
+            background: #241735;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #67458c;
+            line-height: 1.9;
+            color: #d5c9e3;
+        }
+
+        .about-box h3 {
+            color: #c69aff;
+            margin-bottom: 15px;
+        }
+
+        /* EDUCATION */
+        #education {
+            background: #100b1c;
+        }
+
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .education-card {
+            padding: 30px;
+            background: #241735;
+            border-radius: 18px;
+            border-left: 4px solid #bd8aff;
+            transition: .3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-7px);
+            background: #302044;
+        }
+
+        .education-card h3 {
+            color: #c69aff;
+            margin-bottom: 12px;
+        }
+
+        .education-card p {
+            color: #c9bfd8;
+            line-height: 1.7;
+        }
+
+        /* SKILLS */
+        #skills {
+            background: #181126;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            text-align: center;
+            background: #2b1b40;
+            border: 1px solid #67458c;
+            border-radius: 15px;
+            transition: .3s;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #7545a3;
+        }
+
+        .skill-card h3 {
+            color: #d4b3ff;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #c9bfd8;
+        }
+
+        /* JAVA CODE */
+        #java {
+            background: #100b1c;
+        }
+
+        .java-box {
+            background: #1b1725;
+            border: 1px solid #77529e;
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .java-box h3 {
+            color: #c69aff;
+            margin-bottom: 15px;
+        }
+
+        .java-box p {
+            color: #c9bfd8;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            background: #090711;
+            color: #d8baff;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.7;
+            border: 1px solid #49345f;
+        }
+
+        /* CONTACT */
+        #contact {
+            background: #181126;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: #241735;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #67458c;
+            line-height: 2;
+        }
+
+        .contact-box p {
+            color: #d5c9e3;
+        }
+
+        .contact-box a {
+            color: #d4b3ff;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #0b0712;
+            padding: 25px;
+            text-align: center;
+            color: #a99bb8;
+            font-size: 13px;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 100px 6%;
+            }
+
+            #home {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .home-text h1 {
+                font-size: 38px;
+            }
+
+            .profile {
+                width: 210px;
+                height: 230px;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION MENU -->
+    <nav>
+        <div class="logo">MyPortfolio.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Personal Info</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#java">Java Code</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section id="home">
+
+        <div class="home-text">
+            <h3>Hello! Welcome to my portfolio.</h3>
+
+            <h1>I'm <span class="highlight">Jamaica Ella C. Dullas</span></h1>
+
+            <h3>IT Student | Future Programmer</h3>
+
+            <p>
+                Welcome to my personal portfolio! This website
+                showcases my personal information, educational
+                background, technical skills, and programming
+                projects. I am passionate about learning new
+                technologies and improving my skills in the
+                field of Information Technology.
+            </p>
+
+            <a href="#about" class="btn">Explore My Portfolio</a>
+        </div>
+
+        <div class="profile">
+            <img src="ellai.png" alt="My Profile Picture">
+        </div>
+
+    </section>
+
+    <!-- PERSONAL INFORMATION -->
+    <section id="about">
+
+        <h2 class="section-title">Personal Information</h2>
+
+        <div class="about-box">
+            <h3>About Me</h3>
+
+            <p>
+                My name is Jamaica Ella C. Dullas. I am an Information
+                Technology student who enjoys learning about
+                computers, programming, and technology.
+
+                I consider myself a hardworking, responsible,
+                and determined person. I believe that learning
+                takes patience, practice, and dedication.
+
+                My goal is to improve my programming knowledge
+                and become a successful IT professional in
+                the future.
+            </p>
+
+            <br>
+
+            <p><strong>Full Name:</strong>Jamaica Ella C. Dullas</p>
+            <p><strong>Age:</strong>18</p>
+            <p><strong>Course:</strong> Bachelor of Science in Information Technology</p>
+            <p><strong>Section:</strong> BSIT 1-D</p>
+            <p><strong>Address:</strong> Macapabellag Guimba N.E</p>
+
+        </div>
+
+    </section>
+
+    <!-- EDUCATIONAL BACKGROUND -->
+    <section id="education">
+
+        <h2 class="section-title">Educational Background</h2>
+
+        <div class="education-container">
+
+            <div class="education-card">             
+                <h3>College</h3>
+                <p>School: Our Lady of the Sacred Heart College of Guimba, Inc.</p>
+                <p>Course: BS Information Technology</p>
+                <p>Year Level: First Year College</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Basic knowledge of creating web pages.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Problem Solving</h3>
+                <p>Finding solutions through logical thinking.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Creativity</h3>
+                <p>Creating designs and exploring new ideas.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Communication</h3>
+                <p>Sharing ideas and working with others.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JAVA PERFORMANCE TASK -->
+    <section id="java">
+
+        <h2 class="section-title">My Java Project</h2>
+
+        <div class="java-box">
+
+            <h3>CC102 - Final Performance Task (PeTa)</h3>
+
+            <p>
+                This project is a Number Guessing Game developed using Java.
+                The player must guess the secret number between 1 and 20 within five attempts.
+                It uses basic Java concepts such as Scanner, Random, if-else statements,
+                 and while loops.
+            </p>
+
+            <h3>Java Source Code</h3>
+
+            <pre>
+import java.util.Scanner;
+import java.util.Random;
+
+public class NumberGuessingGame {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Random random = new Random();
+
+        int secretNumber = random.nextInt(20) + 1;
+        int guess;
+        int attempts = 0;
+        int maxAttempts = 5;
+
+        System.out.println("=================================");
+        System.out.println("       NUMBER GUESSING GAME");
+        System.out.println("=================================");
+        System.out.println("Guess the secret number from 1 to 20.");
+        System.out.println("You have " + maxAttempts + " attempts.");
+
+        while (attempts  maxAttempts) {
+            System.out.print("\nEnter your guess: ");
+            guess = input.nextInt();
+            attempts++;
+
+            if (guess  1 || guess > 20) {
+                System.out.println("Please enter a number from 1 to 20.");
+                attempts--;
+            } else if (guess == secretNumber) {
+                System.out.println("Congratulations! You guessed the number!");
+                System.out.println("Number of attempts: " + attempts);
+                break;
+            } else if (guess  secretNumber) {
+                System.out.println("Too low! Try a higher number.");
+            } else {
+                System.out.println("Too high! Try a lower number.");
+            }
+
+            if (attempts == maxAttempts) {
+                System.out.println("\nGame over! You used all your attempts.");
+                System.out.println("The secret number was " + secretNumber + ".");
+            }
+        }
+
+        System.out.println("\nThank you for playing!");
+        input.close();
+    }
+}
+
+
+            </pre>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-box">
+
+            <p><strong>Email:</strong> elladullas@gmail.com</p>
+
+            <p><strong>Contact Number:</strong> 123456789123</p>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 My Personal Portfolio | Designed with HTML and CSS</p>
+        <p>Thank you for visiting my website!</p>
+    </footer>
+
+</body>
+</html>
